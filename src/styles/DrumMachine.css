@@ -1,0 +1,54 @@
+#drum-machine {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+
+    margin: 2rem 0;
+}
+
+#display {
+    position: relative;
+
+    width: 30%;
+
+    background-color: black;
+
+    font-family: monospace;
+    font-size: 2rem;
+
+    color: white;
+
+    margin-right: 1rem;
+}
+
+#drums {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem;
+
+    width: 30%;
+
+    /*margin: 2rem auto;*/
+}
+
+#volume-value {
+    position: absolute;
+    right: 1rem;
+    bottom: 11rem;
+}
+
+#volume {
+    position: absolute;
+    right: -4rem;
+    bottom: 6rem;
+
+    transform: rotate(-90deg);
+    transform-origin: bottom;
+
+    cursor: grab;
+    
+    &:active {
+         cursor: grabbing;
+     }
+}

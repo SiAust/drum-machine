@@ -1,0 +1,41 @@
+.drum-pad {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    font-family: FreeMono, monospace;
+    font-size: 3rem;
+
+    position: relative;
+
+    width: 8rem;
+    height: 8rem;
+
+    background-color: gray;
+    box-shadow: #282c34 .5rem .5rem;
+    border-radius: 4px;
+
+    align-items: center;
+
+    p {
+        /*margin: auto;*/
+    }
+
+    svg {
+        font-size: 2rem;
+
+    }
+
+    &:hover {
+        cursor: pointer;
+        background-color: cadetblue;
+    }
+
+     &:active {
+        top: .5rem;
+        left: .5rem;
+
+          box-shadow: none;
+      }
+
+}
