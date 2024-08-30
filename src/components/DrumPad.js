@@ -1,5 +1,4 @@
 import "../styles/DrumPad.css"
-// import {useRef} from "react";
 
 import {faPlay, faPause} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";

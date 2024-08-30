@@ -11,15 +11,10 @@ function DrumMachine() {
     const [volume, setVolume] = useState(50);
 
     function handleClick(audioClip) {
-        console.log(audioClip.element)
-        setLastPlayed(audioClip.name);
-        const elementById = document.getElementById(audioClip.keyBinding);  // audioClip.element is a React Element
-        // setCurrentTrack(audioClip);
-        elementById.volume = volume / 100;
-        console.log(elementById);
-        console.log(elementById.volume);
+        console.debug(audioClip.element);
+        const audioElement = document.getElementById(audioClip.keyBinding);  // audioClip.element is a React Element
 
-        playSound(elementById);
+        playSound(audioElement);
     }
 
     document.addEventListener('keydown', handleKeyDown);
@@ -54,27 +49,28 @@ function DrumMachine() {
                 console.log(e.code);
                 return;
         }
-        try {
-            element.volume = volume / 100;
-        } catch (err) {
-            console.log(err)
-            console.log(element.volume)
-            console.log(`volume: ${volume}`)
-        }
 
         playSound(element);
     }
 
     function playSound(element) {
         // if (HTMLMediaAPI.playing)
+        try {
+            element.volume = volume / 100;
+            console.info(`Volume set: ${element.volume}`);
+        } catch (err) {
+            console.error(err);
+        }
+
         element.play()
             .then((resolved) => {
-                console.log(`${element} played. ${resolved}`);
+                console.info(`${element.name} played`);
+                setLastPlayed(element.dataset.name);
             })
             .catch((err) => {
                 console.error(err);
             })
-            .finally(() => console.log("Finally"));
+            .finally(() => console.info(`${element.name} finished playing`));
     }
 
     return (

@@ -37,7 +37,7 @@ AudioClip.prototype = {
             id={this.keyBinding}
             className={"clip"}
             src={this.clip}
-            name={this.name}></audio>;
+            data-name={this.name}></audio>; // Tests require ID to be used for KeyBinding ref, workaround
     }
 }
 
@@ -53,13 +53,3 @@ export const AUDIO_CLIPS = [
     new AudioClip(rp4Kick, 8),
 ];
 
-// export const AUDIO_CLIPS = [
-//     {
-//         name: formatName(cevH2),
-//         clip: cevH2,
-//         id: 0,
-//         keyBinding: KEY_BINDINGS[1],
-//         path: cevH2.toString(),
-//         element: <audio id={1} src={cevH2}></audio>
-//     },
-// ];
